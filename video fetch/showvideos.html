@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Video Search</title>
+  <style>
+    /* Dark theme styles */
+    body {
+      background-color: #222;
+      color: #ddd;
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+    }
+    a {
+      color: #33b5e5;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #1fa6ec;
+    }
+    
+    /* Search bar styles */
+    .search-bar {
+      display: flex;
+      margin: 10px 0; /* Adjust margin as needed */
+    }
+    .search-bar input[type="text"] {
+      padding: 5px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      flex-grow: 1;
+    }
+    .search-bar button {
+      padding: 5px 10px;
+      background-color: #33b5e5;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Video card styles */
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    .video-item {
+      width: 220px; /* Adjust width as needed */  /* Reduced width for smaller cards */
+      margin: 5px;
+      background-color: #333;
+      border-radius: 5px;
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .video-item img {
+      width: 100%;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+    .video-item a {
+      margin-top: 5px; /* Adjust spacing between thumbnail and title */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">  <form class="search-bar" method="POST">
+      <label for="query">Search:</label>
+      <input type="text" id="query" name="query">
+      <button type="submit">Search</button>
+    </form>
+    
+    <h1>Search Results</h1>
+    {% if videos %}
+      <div class="video-container">
+        {% for video in videos %}
+          <div class="video-item">
+            <a href="https://www.youtube.com/watch?v={{ video.video_id }}">
+              <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+            </a>
+            <a href="https://www.youtube.com/watch?v={{ video.video_id }}">{{ video.title }}</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No videos found for your search.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
