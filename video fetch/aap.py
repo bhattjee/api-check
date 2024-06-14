@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests  # Library for making API requests
 
 # Replace with your YouTube Data API key
-api_key = 'AIzaSyAwrPvQKBXuJmq9NgKOLjCBYhpyxeOcnK8'
+api_key = ''
 
 app = Flask(__name__)
 
