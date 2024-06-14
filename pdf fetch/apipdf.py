@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # Replace with your Google Books API key
-api_key = 'your api '
+api_key = 'your api here'
 
 def fetch_pdfs_from_google_books(query, max_results=10):
     url = "https://www.googleapis.com/books/v1/volumes"
