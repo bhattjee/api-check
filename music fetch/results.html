@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% elif artists %}
+        <ul>
+            {% for artist in artists %}
+                <li>
+                    {{ artist['strArtist'] }} - {{ artist['strGenre'] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for this artist.</p>
+    {% endif %}
+</body>
+</html>
